@@ -214,10 +214,11 @@ export default function ProductDetails({ params }: { params: { productdetail: st
 
   const [paramImage, setParamImage] = useState(0)
 
-  // Use the `productdetail` directly from `params`
+  // Directly use the `productdetail` from params without async logic
   useEffect(() => {
     if (params.productdetail) {
-      setParamImage(Number(params.productdetail)) // Convert to number if necessary
+      // Convert the `productdetail` to number and set image accordingly
+      setParamImage(Number(params.productdetail))
     }
   }, [params.productdetail])
 
