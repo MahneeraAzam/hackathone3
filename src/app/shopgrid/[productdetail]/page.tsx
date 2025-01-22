@@ -204,7 +204,10 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Star, Heart, Facebook, Twitter, Instagram } from 'lucide-react'
+import { Star, Heart, } from 'lucide-react'
+import { FaInstagramSquare } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
+import { FaTwitter } from "react-icons/fa";
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Image from "next/image"
@@ -293,13 +296,13 @@ export default function ProductDetails({ params }: { params: { productdetail: st
                 <span className="font-semibold text-[#151875]">Share:</span>
                 <div className="flex gap-2">
                   <Button variant="outline" size="icon" className="rounded-full">
-                    <Facebook className="h-4 w-4" />
+                    <FaFacebook className="h-4 w-4" />
                   </Button>
                   <Button variant="outline" size="icon" className="rounded-full">
-                    <Instagram className="h-4 w-4" />
+                    <FaInstagramSquare className="h-4 w-4" />
                   </Button>
                   <Button variant="outline" size="icon" className="rounded-full">
-                    <Twitter className="h-4 w-4" />
+                    <FaTwitter className="h-4 w-4" />
                   </Button>
                 </div>
               </div>
