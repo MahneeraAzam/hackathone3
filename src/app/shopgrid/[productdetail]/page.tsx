@@ -203,24 +203,23 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Star, Heart, } from 'lucide-react'
-import { FaInstagramSquare } from "react-icons/fa";
-import { FaFacebook } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
+import { useParams } from 'next/navigation' // Import useParams
+import { Star, Heart, Facebook, Twitter, Instagram } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Image from "next/image"
 import Link from "next/link"
 
-export default function ProductDetails({ params }: { params: { productdetail: string } }) {
-
+export default function ProductDetails() {
+  const params = useParams() // Use the useParams hook
   const [paramImage, setParamImage] = useState(0)
 
   useEffect(() => {
-    // Convert the productdetail string to a number
-    const productDetailNumber = parseInt(params.productdetail, 10);
-    setParamImage(productDetailNumber);
-  }, [params.productdetail]);
+    // Access the productdetail parameter from params
+    const productDetail = params.productdetail as string
+    const productDetailNumber = parseInt(productDetail, 10)
+    setParamImage(productDetailNumber)
+  }, [params.productdetail])
 
   return (
     <div className="h-auto mb-[-140px] bg-white">
@@ -292,13 +291,13 @@ export default function ProductDetails({ params }: { params: { productdetail: st
                 <span className="font-semibold text-[#151875]">Share:</span>
                 <div className="flex gap-2">
                   <Button variant="outline" size="icon" className="rounded-full">
-                    <FaFacebook className="h-4 w-4" />
+                    <Facebook className="h-4 w-4" />
                   </Button>
                   <Button variant="outline" size="icon" className="rounded-full">
-                    <FaInstagramSquare className="h-4 w-4" />
+                    <Instagram className="h-4 w-4" />
                   </Button>
                   <Button variant="outline" size="icon" className="rounded-full">
-                    <FaTwitter className="h-4 w-4" />
+                    <Twitter className="h-4 w-4" />
                   </Button>
                 </div>
               </div>
@@ -369,25 +368,6 @@ export default function ProductDetails({ params }: { params: { productdetail: st
     </div>
   )
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
